@@ -27,3 +27,9 @@ class Person:
             if item.make == type:
                 empty.append(item.owner.name)
         return empty
+
+    def drives_same_make_as_me(self):
+        car_type = list(filter(lambda item: item.owner.name == self.name, Car._all))[0].make
+        lst = Person.drives_a(car_type)
+        excluding_self = filter(lambda item: item != self.name, lst)
+        return excluding_self

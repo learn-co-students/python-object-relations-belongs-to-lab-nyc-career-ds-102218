@@ -40,3 +40,11 @@ class Car:
     @classmethod
     def all(cls):
         return cls._all
+
+    @classmethod
+    def cars_driven_by(cls, occupation):
+            empty = []
+            for item in Car._all:
+                if item.owner.occupation == occupation:
+                    empty.append(item.make)
+            return empty
